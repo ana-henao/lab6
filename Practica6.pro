@@ -13,13 +13,15 @@ SOURCES += \
     cuerpocentral.cpp \
     cuerpograf.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    planeta.cpp
 
 HEADERS += \
     cuerpo.h \
     cuerpocentral.h \
     cuerpograf.h \
-    mainwindow.h
+    mainwindow.h \
+    planeta.h
 
 FORMS += \
     mainwindow.ui
