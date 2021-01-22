@@ -20,12 +20,17 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    void setplanetas();
+    QColor *colorRandom();
 
 public slots:
     void actualizar();
 
 private slots:
     void on_pushButton_clicked();
+    void on_agregarplaneta_clicked();
+
+    void on_lista_currentIndexChanged(int index);
 
 private:
     Ui::MainWindow *ui;
@@ -33,8 +38,10 @@ private:
     QGraphicsScene *scene;
     float dt;
     //void keyPressEvent(QKeyEvent *event);
-    QList<cuerpograf *> cuerpos;
+    QVector<cuerpograf *> cuerpos;
    // cuerpografcentral * cuerpoc;
+    float dt_=0.1;
+    int c=-1;
 
 };
 #endif // MAINWINDOW_H

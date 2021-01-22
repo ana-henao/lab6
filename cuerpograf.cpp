@@ -1,21 +1,16 @@
 #include "cuerpograf.h"
 
-cuerpograf::cuerpograf(float x, float y, bool central):escala(1)
+cuerpograf::cuerpograf(float x, float y, float vx, float vy, float masa, float radio):escala(1)
 {
     float posx,posy,velx,vely,mass,r;
     posx = x;
     posy = y;
-    r = 20;
-    mass = 50;
-    velx = 0;
-    vely = 0;
-    if (central){
-     esf=new cuerpoCentral(x,y,mass,r);
-    }
-      else{
+    r = radio;
+    mass = masa;
+    velx = vx;
+    vely = vy;
 
-        esf = new planeta(x,y,velx,vely,r,mass);
-    }
+    esf=new cuerpo(x,y,vx,vy,mass,r);
     setPos(esf->getPX(),esf->getPY());
 }
 
@@ -31,7 +26,7 @@ QRectF cuerpograf::boundingRect() const
 
 void cuerpograf::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
-    painter->setBrush(Qt::blue);
+    painter->setBrush(color);
     painter->drawEllipse(boundingRect());
 }
 
@@ -40,16 +35,21 @@ void cuerpograf::setEscala(float s)
     escala = s;
 }
 
-void cuerpograf::actualizar(float r, float angulo, float masa)
+void cuerpograf::actualizar(float masa, float xcentral, float ycentral, float t)
 {
 
-    //esf->actualizar(r, angulo, masa);
-    setPos(esf->getPX(),esf->getPY());
+    esf->actualizar(masa,xcentral,ycentral,t);
+    setPos(esf->getPX()*escala,esf->getPY()*escala);
 }
 
 cuerpo *cuerpograf::getEsf()
 {
     return esf;
+}
+
+void cuerpograf::setColor(QColor color)
+{
+    this->color=color;
 }
 
 

@@ -10,18 +10,14 @@ CONFIG += c++11
 
 SOURCES += \
     cuerpo.cpp \
-    cuerpocentral.cpp \
     cuerpograf.cpp \
     main.cpp \
-    mainwindow.cpp \
-    planeta.cpp
+    mainwindow.cpp
 
 HEADERS += \
     cuerpo.h \
-    cuerpocentral.h \
     cuerpograf.h \
-    mainwindow.h \
-    planeta.h
+    mainwindow.h
 
 FORMS += \
     mainwindow.ui

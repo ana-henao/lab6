@@ -6,25 +6,23 @@
 #include "cuerpo.h"
 #include <stdlib.h>
 #include <time.h>
+#include"cuerpocentral.h"
 
-
-class cuerpograf: public QGraphicsItem
+class cuerpografcentral: public QGraphicsItem
 {
 public:
-    cuerpograf(float x, float y, float vx, float vy, float masa, float radio);
-    ~cuerpograf();
+    cuerpografcentral(float x, float y);
+    ~cuerpografcentral();
     QRectF boundingRect() const;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option,QWidget *widget);
     void setEscala(float s);
-    void actualizar(float masa, float xcentral, float ycentral, float t);
-    cuerpo *getEsf();
-    void setColor(QColor color);
+    cuerpoCentral *getEsf();
+
 
 private:
-    cuerpo * esf;
-    float escala;
-    QColor color=Qt::black;
 
+    cuerpoCentral * esf;
+    float escala;
 
 };
 
